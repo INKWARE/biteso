@@ -23,39 +23,61 @@
                     <li class="nav-item">
                         <a class="nav-link active" id="tab_identinfication-tab" data-toggle="pill"
                             href="#tab_identinfication" role="tab" aria-controls="tab_identinfication"
-                            aria-selected="false">Identification</a>
+                            aria-selected="false">
+                            <i class="fa fa-file"></i>Identification
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_ayant_droits-tab" data-toggle="pill" href="#tab_ayant_droits"
-                            role="tab" aria-controls="tab_ayant_droits" aria-selected="false">Ayants droits</a>
+                            role="tab" aria-controls="tab_ayant_droits" aria-selected="false">
+                            <i class="fa fa-users"></i>Ayants droits
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_carriere-tab" data-toggle="pill" href="#tab_carriere" role="tab"
-                            aria-controls="tab_carriere" aria-selected="true">Carriere</a>
+                            aria-controls="tab_carriere" aria-selected="true">
+                            <i class="fa fa-list"></i>Carriere
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_situations-tab" data-toggle="pill" href="#tab_situations" role="tab"
-                            aria-controls="tab_situations" aria-selected="false">Situations</a>
+                            aria-controls="tab_situations" aria-selected="false">
+                            <i class="fa fa-file"></i>Situations
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_cotations-tab" data-toggle="pill" href="#tab_cotations" role="tab"
-                            aria-controls="tab_cotations" aria-selected="true">Cotations</a>
+                            aria-controls="tab_cotations" aria-selected="true">
+                            <i class="fa fa-check"></i>Cotations
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_etudes_faites-tab" data-toggle="pill" href="#tab_etudes_faites"
-                            role="tab" aria-controls="tab_etudes_faites" aria-selected="false">Etudes faites</a>
+                            role="tab" aria-controls="tab_etudes_faites" aria-selected="false">
+                            <i class="fa fa-school"></i>
+                            Etudes faites
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_formations-tab" data-toggle="pill" href="#tab_formations" role="tab"
-                            aria-controls="tab_formations" aria-selected="false">Formations & Stages</a>
+                            aria-controls="tab_formations" aria-selected="false">
+                            <i class="fa fa-graduation-cap"></i>
+                            Formations & Stages
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_hist_grades-tab" data-toggle="pill" href="#tab_hist_grades"
-                            role="tab" aria-controls="tab_hist_grades" aria-selected="false">Historique des grades</a>
+                            role="tab" aria-controls="tab_hist_grades" aria-selected="false">
+                            <i class="fa fa-shield-alt"></i>
+                            Historique des grades
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab_mvts-tab" data-toggle="pill" href="#tab_mvts" role="tab"
-                            aria-controls="tab_mvts" aria-selected="false">Mouvements</a>
+                            aria-controls="tab_mvts" aria-selected="false">
+                            <i class="fa fa-street-view"></i>
+                            Mouvements
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -255,31 +277,31 @@
                                     aria-orientation="vertical">
                                     <a class="nav-link active" id="mutations-tab" data-toggle="pill"
                                         href="#mutations" role="tab" aria-controls="mutations"
-                                        aria-selected="true">Mutations</a>
+                                        aria-selected="true"><i class="fa fa-street-view"></i>Mutations</a>
                                     <a class="nav-link" id="actions_disciplinaires-tab" data-toggle="pill"
                                         href="#actions_disciplinaires" role="tab" aria-controls="actions_disciplinaires"
-                                        aria-selected="false">Actions disciplinaires</a>
+                                        aria-selected="false"><i class="fa fa-hammer"></i>Actions disciplinaires</a>
                                     <a class="nav-link" id="dossiers_penals-tab" data-toggle="pill"
                                         href="#dossiers_penals" role="tab" aria-controls="dossiers_penals"
-                                        aria-selected="false">Dossiers penals</a>
+                                        aria-selected="false"><i class="fa fa-folder-open"></i>Dossiers penals</a>
                                     <a class="nav-link" id="absences-tab" data-toggle="pill"
                                         href="#absences" role="tab" aria-controls="absences"
-                                        aria-selected="false">Absences</a>
+                                        aria-selected="false"><i class="fa fa-bug"></i>Absences</a>
                                     <a class="nav-link" id="missions_renforts-tab" data-toggle="pill"
                                         href="#missions_renforts" role="tab" aria-controls="missions_renforts"
-                                        aria-selected="true">Missions & Renforcements</a>
+                                        aria-selected="true"><i class="fa fa-user-nurse"></i>Missions & Renforcements</a>
                                     <a class="nav-link" id="distinctions-tab" data-toggle="pill"
                                         href="#distinctions" role="tab" aria-controls="distinctions"
-                                        aria-selected="false">Distinctions honorifiques</a>
+                                        aria-selected="false"><i class="fa fa-user-shield"></i>Distinctions honorifiques</a>
                                     <a class="nav-link" id="accidents_roulage-tab" data-toggle="pill"
                                         href="#accidents_roulage" role="tab" aria-controls="accidents_roulage"
-                                        aria-selected="false">Accidents de roulage</a>
+                                        aria-selected="false"><i class="fa fa-car-crash"></i>Accidents de roulage</a>
                                     <a class="nav-link" id="accidents_travail-tab" data-toggle="pill"
                                         href="#accidents_travail" role="tab" aria-controls="accidents_travail"
-                                        aria-selected="false">Accidents de travail</a>
+                                        aria-selected="false"><i class="fa fa-user-times"></i>Accidents de travail</a>
                                     <a class="nav-link" id="exemptions_service-tab" data-toggle="pill"
                                         href="#exemptions_service" role="tab" aria-controls="exemptions_service"
-                                        aria-selected="true">Exemptions de service</a>
+                                        aria-selected="true"><i class="fa fa-user-slash"></i>Exemptions de service</a>
                                 </div>
                             </div>
                             <div class="col-8 col-sm-10">
