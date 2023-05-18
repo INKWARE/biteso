@@ -69,10 +69,23 @@
         </head>
 
         <body class="hold-transition layout-top-nav">
-            <div class="row bg-primary text-center" style="height:80px">
-                    <legend>Gestion des carrieres</legend><br />
-                    <legend>Cellule Administration</legend>
+            <div class="row bg-primary" style="height:50px; padding:10px">                
+                <div class="row col-md-12">
+                    <div class="col-md-9">
+                        <h3 class="text-bold">Cellule Administration</h3>
+                    </div>                    
+
+                    <div class="col-md-4">
+                        <?=$this->auth_library->get()->rol_code?>
+                    </div>
+                </div>
             </div>        
             
             <div class="wrapper">
+
+            <?php 
+                // echo "<pre>";
+                // print_r($this->auth_library->get());
+                // echo "</pre>";
+            ?>
                 

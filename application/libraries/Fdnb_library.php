@@ -12,9 +12,6 @@ class Fdnb_library {
         $this->ci->load->helper(array('form', 'url'));         
     }
 
-    function send_mail($emailTo = array(), $subjet, $cc_emails = array(), $message, $attach = array()) {
-
-    }
 
     public function generate_string($taille)
     {
