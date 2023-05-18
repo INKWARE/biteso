@@ -109,18 +109,6 @@
             </li>
 
         </ul>
-
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-0 ml-md-3">
-          <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-              <button class="btn btn-navbar" type="submit">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
       </div>
 
       <!-- Right navbar links -->
@@ -141,7 +129,7 @@
              
             <a href="#" class="dropdown-item"> 
               <div class="media">
-                <img src="<?=base_url()?>assets/img/user1-128x128.jpg" class="img-size-50 mr-3 img-circle">
+                <i class="fas fa-user"></i>
               </div>
               <!-- Message End -->
             </a>

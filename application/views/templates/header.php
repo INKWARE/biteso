@@ -68,6 +68,11 @@
 
         </head>
 
-            <body class="hold-transition layout-top-nav">
-                <div class="wrapper">
+        <body class="hold-transition layout-top-nav">
+            <div class="row bg-primary text-center" style="height:80px">
+                    <legend>Gestion des carrieres</legend><br />
+                    <legend>Cellule Administration</legend>
+            </div>        
+            
+            <div class="wrapper">
                 

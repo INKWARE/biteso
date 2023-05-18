@@ -53,7 +53,7 @@
                             </div>
 
                             <div class='col-md-3' style="margin-top:30px">
-                                <?=form_submit('','Enregistrer','class="btn btn-sm btn-primary"')?>                    
+                                <?=form_submit('','Chercher','class="btn btn-sm btn-primary"')?>                    
                             </div>
                         </div>
                     <?=form_close()?>
