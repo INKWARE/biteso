@@ -29,18 +29,28 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class='col-md-3'>					
+					<div class='col-md-3'>
 						<label>Date debut</label>
-						<?php echo form_error('date_debut'); ?>
-						<?=form_input('date_debut',set_value('date_debut',$data->date_debut),"class='form-control' placeholder='date_debut'")?>
-						<?php echo form_error('date_debut','<div class="text-danger">', '</div>'); ?>
+						
+						<div class="input-group date" id="date_debut" data-target-input="nearest">
+							<?=form_input('date_debut',set_value('date_debut', $data->date_debut),"class='form-control datetimepicker-input', id='date_debut' placeholder='YYYY-MM-DD'")?>
+							<div class="input-group-append" data-target="#date_debut" data-toggle="datetimepicker">
+								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							</div>
+						</div>
+						<?php echo form_error('date_debut','<span class="text-danger">', '</span>'); ?>
 					</div>
 
 					<div class='col-md-3'>
-						<label>Date fin</label>
-						<?php echo form_error('date_fin'); ?>
-						<?=form_input('date_fin',set_value('date_fin',$data->date_fin),"class='form-control' placeholder='date_fin'")?>
-						<?php echo form_error('date_fin','<div class="text-danger">', '</div>'); ?>
+						<label>Date debut</label>
+						
+						<div class="input-group date" id="date_fin" data-target-input="nearest">
+							<?=form_input('date_fin',set_value('date_fin', $data->date_fin),"class='form-control datetimepicker-input', id='date_fin' placeholder='YYYY-MM-DD'")?>
+							<div class="input-group-append" data-target="#date_fin" data-toggle="datetimepicker">
+								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							</div>
+						</div>
+						<?php echo form_error('date_fin','<span class="text-danger">', '</span>'); ?>
 					</div>
 				</div>
 

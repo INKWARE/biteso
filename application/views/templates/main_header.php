@@ -18,9 +18,31 @@
                 <a href="<?=base_url().'gr/Fiche_identification'?>" class="nav-link"><i class="fas fa-file"></i><?=$this->lang->line('app_menu_renseignement')?></a>
             </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-edit"></i>Modifications</a>
+            <li class="nav-item dropdown <?php if($this->router->class =='Modifications') echo "active";?>">
+                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+                <i class="fas fa-edit"></i>Modifications</a>
+                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    <li><a href="<?=base_url().'gr/Modifications/index/gr_fiche_identification'?>" class="dropdown-item">Identification</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/gr_fiche_carriere'?>" class="dropdown-item">Carriere</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/gr_ayants_droit'?>" class="dropdown-item">Ayants droits</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/gr_historique_situations'?>" class="dropdown-item">Situations</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_cotations'?>" class="dropdown-item">Cotations</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_etudes_faites'?>" class="dropdown-item">Etudes faits</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_formations_stages'?>" class="dropdown-item">Formations stages</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_avancement_grades'?>" class="dropdown-item">Grades</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_fiche_mutations'?>" class="dropdown-item">Mutations</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_actions_disciplinaires'?>" class="dropdown-item">Actions displ.</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_dossiers_penals'?>" class="dropdown-item">Dossiers penals</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_absences'?>" class="dropdown-item">Absences</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_renforcements'?>" class="dropdown-item">Renforcements</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_dictinctions_honorifiques'?>" class="dropdown-item">Dinstinction Hon.</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_accidents_roulage'?>" class="dropdown-item">Accident roulage</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_accidents_travail'?>" class="dropdown-item">Accident travail</a></li>
+                    <li><a href="<?=base_url().'gr/Modifications/index/mv_exemptions_service'?>" class="dropdown-item">Exemptions de service</a></li>
+                    
+                </ul>
             </li>
+            
 
             <li class="nav-item <?php if($this->router->class =='Search') echo "active";?>">
                 <a href="<?=base_url().'search/Search'?>" class="nav-link"><i class="fas fa-search"></i>Chercher</a>
@@ -139,3 +161,9 @@
     </div>
   </nav>
   <!-- /.navbar -->
+
+<?php 
+    if(isset($title_top_bar)){
+        echo "<li class='nav-item d-none d-sm-inline-block'>".$title_top_bar."</li>";
+    }
+?>

@@ -59,6 +59,10 @@
         format:'YYYY-MM-DD'
   });
 
+  $('#date_naissance').datetimepicker({
+        format:'YYYY-MM-DD'
+  });
+
   $('#date_deces').datetimepicker({
         format:'YYYY-MM-DD'
   });
@@ -83,6 +87,13 @@
         format:'YYYY-MM-DD'
   });
   
+  $('#date_debut').datetimepicker({
+        format:'YYYY-MM-DD'
+  });
+  
+  $('#date_fin').datetimepicker({
+        format:'YYYY-MM-DD'
+  });
 
   var url = '<?php echo base_url();?>';
 

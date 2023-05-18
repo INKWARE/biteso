@@ -9,7 +9,7 @@ class Etudes_faites extends Admin_Controller{
 	
 	public function add(){
 		$id_identification = !empty($this->uri->segment(4))?$this->uri->segment(4):$this->input->post('id_identification');
-		$this->form_validation->set_rules('id_identification', 'Id_identification', 'required|numeric');
+		// $this->form_validation->set_rules('id_identification', 'Id_identification', 'required|numeric');
 		$this->form_validation->set_rules('id_type_etudes', 'Id_type_etudes', 'required|numeric');
 		$this->form_validation->set_rules('etablissement', 'Etablissement', 'required');
 		$this->form_validation->set_rules('periode_etude', 'Periode_etude', 'required');
@@ -41,7 +41,7 @@ class Etudes_faites extends Admin_Controller{
 		$id = $this->uri->segment(5) > 0 ? $this->uri->segment(5) : $this->input->post('id_etudes');
 		$this->data['data'] = $this->db->get_where('mv_etudes_faites',array('id_etudes'=>$id))->row();
 
-		$this->form_validation->set_rules('id_identification', 'Id_identification', 'required|numeric');
+		// $this->form_validation->set_rules('id_identification', 'Id_identification', 'required|numeric');
 		$this->form_validation->set_rules('id_type_etudes', 'Id_type_etudes', 'required|numeric');
 		$this->form_validation->set_rules('etablissement', 'Etablissement', 'required');
 		$this->form_validation->set_rules('periode_etude', 'Periode_etude', 'required');

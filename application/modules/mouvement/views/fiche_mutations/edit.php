@@ -17,7 +17,11 @@
 			<div class="card-body">
 			<?=form_open('mouvement/Fiche_mutations/edit/',NULL, ['id_mutation'=>$data->id_mutation])?>
 
-
+			<?php 
+				echo "<pre>";
+				print_r($data);
+				echo "</pre>";
+			?>
 			<div class="row">
 			<input type="hidden" name="id_identification" value="<?=$id_identification?>">
 

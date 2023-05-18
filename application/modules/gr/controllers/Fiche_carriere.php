@@ -17,8 +17,8 @@ class Fiche_carriere extends Admin_Controller{
 			$this->data['identif'] = $this->db->get_where('gr_fiche_identification',array('id_identification'=>$carriere->id_identification))->row();
 			$this->data['data'] = $carriere;
 		}else{
-			$this->data['identif'] = new stdClass(); 
-			$this->data['data'] = new stdClass();
+			$this->data['identif'] = $this->My_model->empty_one('gr_fiche_identification');
+			$this->data['data'] = $this->My_model->empty_one('gr_fiche_carriere');
 		}		
 
 		// $this->form_validation->set_rules('id_identification', 'Individu', 'required|numeric');

@@ -17,7 +17,7 @@ class Fiche_identification extends Admin_Controller{
 			$this->data[ 'listing' ] = true;
 			$this->data[ 'datas' ]   = $this->db->order_by( 'id_identification', 'DESC' )->get( 'gr_fiche_identification', $config[ 'per_page' ],$this->uri->segment( 4 ));
 			$this->data[ 'title' ] = $this->lang->line('identity_title');
-			$this->data[ 'title_top_bar' ] = 'Liste des fiches';
+			// $this->data[ 'title_top_bar' ] = 'Liste des fiches';
 			$this->render_template('fiche_identification/index', $this->data);
 		}
 

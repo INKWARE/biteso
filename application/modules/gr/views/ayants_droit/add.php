@@ -39,9 +39,9 @@
 			<div class='col-md-3'>
 				<label>Date de Naissance</label>
 				
-				<div class="input-group date" id="inputdate" data-target-input="nearest">
-					<?=form_input('date_naissance',set_value('date_naissance'),"class='form-control datetimepicker-input', id='inputdate' placeholder='date_naissance'")?>
-					<div class="input-group-append" data-target="#inputdate" data-toggle="datetimepicker">
+				<div class="input-group date" id="date_naissance" data-target-input="nearest">
+					<?=form_input('date_naissance',set_value('date_naissance'),"class='form-control datetimepicker-input', id='date_naissance' placeholder='date_naissance'")?>
+					<div class="input-group-append" data-target="#date_naissance" data-toggle="datetimepicker">
 						<div class="input-group-text"><i class="fa fa-calendar"></i></div>
 					</div>
 				</div>
@@ -54,9 +54,9 @@
 
 			<div class='col-md-3' id='date_marriage_div'>
 				<label>Date de mariage</label>
-				<div class="input-group date" id="inputdate" data-target-input="nearest">
+				<div class="input-group date" id="date_marriage" data-target-input="nearest">
 					<?=form_input('date_marriage',set_value('date_marriage'),"class='form-control datetimepicker-input', id='date_marriage' placeholder='date_marriage'")?>
-					<div class="input-group-append" data-target="#inputdate" data-toggle="datetimepicker">
+					<div class="input-group-append" data-target="#date_marriage" data-toggle="datetimepicker">
 						<div class="input-group-text"><i class="fa fa-calendar"></i></div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@
 
 			<?php if($identification->id_etat_civil == 3){ ?>
 				<div class='col-md-3' ><label>Date de divorce</label>
-				<div class="input-group date" id="inputdate" data-target-input="nearest">
+				<div class="input-group date" id="date_divorce" data-target-input="nearest">
 					<?=form_input('date_divorce',set_value('date_divorce'),"class='form-control datetimepicker-input', id='date_divorce' placeholder='date_marriage'")?>
 					<div class="input-group-append" data-target="#inputdate" data-toggle="datetimepicker">
 						<div class="input-group-text"><i class="fa fa-calendar"></i></div>

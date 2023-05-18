@@ -13,7 +13,7 @@ class Fiche_mutations extends Admin_Controller{
 		    $id_identification = !empty($this->uri->segment(4))?$this->uri->segment(4):$this->input->post('id_identification');
 			$mutation = $this->db->where(array('id_identification'=>$id_identification))->order_by('id_mutation ','DESC')->get('mv_fiche_mutations')->row();	
 
-			$this->data['mutation'] = new stdClass();
+			$this->data['mutation'] = $this->My_model->empty_one('mv_fiche_mutations');
 			if(!empty($mutation)){
 				$this->data['mutation']  = $mutation;
 			}

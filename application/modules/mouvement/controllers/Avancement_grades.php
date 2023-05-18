@@ -33,7 +33,7 @@ class Avancement_grades extends Admin_Controller{
 			if($avancement){
 				$this->data['data'] = $avancement;
 			}else{
-				$this->data['data'] = new stdClass();
+				$this->data['data'] = $this->My_model->empty_one('mv_avancement_grades');
 			}	
 
 			$this->data[ 'title' ] = 'Avancement_grades';
