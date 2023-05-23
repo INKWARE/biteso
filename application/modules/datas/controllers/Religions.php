@@ -21,6 +21,8 @@ class Religions extends Admin_Controller{
 			$this->data[ 'datas' ]   = $this->db->order_by( 'id_religion', 'DESC' )->get( 'gr_religions', $config[ 'per_page' ],$this->uri->segment( 4 ))->result();
 			$this->data['sort'] = '';			
 			$this->form_validation->set_rules('nom_religion', 'Nom_religion', 'required');
+			
+			//echo $this->db->last_query();
 
 			if($this->form_validation->run()){
 

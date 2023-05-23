@@ -6,7 +6,7 @@
                 <h3 class="card-title text-bold"><?=$title?></h3>
 
                 <span class="float-right">
-					<a class='btn btn-info btn-sm' href="<?php echo base_url('gr/Modifications/index/'.$table)?>"><i class='fa fa-list'></i>
+					<a class='btn btn-info btn-sm' href="<?php echo base_url('modifications/Modifications/index/'.$table)?>"><i class='fa fa-list'></i>
 						<span class='d-none d-sm-inline'>&nbsp;Liste</span>
 					</a>
                 </span>
@@ -57,7 +57,7 @@
 							'user_id'=>$this->session->userdata('user')
 						);
 					?>
-					<?=form_open('gr/Modifications/traite/'.$data->id, NULL, $hidden)?>
+					<?=form_open('modifications/Modifications/traite/'.$data->id, NULL, $hidden)?>
 
 						<div class='form-group'>
 							<label>Décision</label>

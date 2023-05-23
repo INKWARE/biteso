@@ -2,7 +2,7 @@
 <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container-fluid">
       <a href="<?=base_url('assets/');?>index3.html" class="navbar-brand">
-        <img src="<?=base_url('assets/');?>img/fdnb/logo2.png" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
+        <img src="<?=base_url('assets/');?>img/fdnb/logo.jpg" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">FDNB</span>
       </a>
 
@@ -22,23 +22,23 @@
                 <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
                 <i class="fas fa-edit"></i>Modifications</a>
                 <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                    <li><a href="<?=base_url().'gr/Modifications/index/gr_fiche_identification'?>" class="dropdown-item">Identification</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/gr_fiche_carriere'?>" class="dropdown-item">Carriere</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/gr_ayants_droit'?>" class="dropdown-item">Ayants droits</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/gr_historique_situations'?>" class="dropdown-item">Situations</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_cotations'?>" class="dropdown-item">Cotations</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_etudes_faites'?>" class="dropdown-item">Etudes faits</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_formations_stages'?>" class="dropdown-item">Formations stages</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_avancement_grades'?>" class="dropdown-item">Grades</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_fiche_mutations'?>" class="dropdown-item">Mutations</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_actions_disciplinaires'?>" class="dropdown-item">Actions displ.</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_dossiers_penals'?>" class="dropdown-item">Dossiers penals</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_absences'?>" class="dropdown-item">Absences</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_renforcements'?>" class="dropdown-item">Renforcements</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_dictinctions_honorifiques'?>" class="dropdown-item">Dinstinction Hon.</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_accidents_roulage'?>" class="dropdown-item">Accident roulage</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_accidents_travail'?>" class="dropdown-item">Accident travail</a></li>
-                    <li><a href="<?=base_url().'gr/Modifications/index/mv_exemptions_service'?>" class="dropdown-item">Exemptions de service</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/gr_fiche_identification'?>" class="dropdown-item">Identification</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/gr_fiche_carriere'?>" class="dropdown-item">Carriere</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/gr_ayants_droit'?>" class="dropdown-item">Ayants droits</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/gr_historique_situations'?>" class="dropdown-item">Situations</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_cotations'?>" class="dropdown-item">Cotations</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_etudes_faites'?>" class="dropdown-item">Etudes faits</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_formations_stages'?>" class="dropdown-item">Formations stages</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_avancement_grades'?>" class="dropdown-item">Grades</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_fiche_mutations'?>" class="dropdown-item">Mutations</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_actions_disciplinaires'?>" class="dropdown-item">Actions displ.</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_dossiers_penals'?>" class="dropdown-item">Dossiers penals</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_absences'?>" class="dropdown-item">Absences</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_renforcements'?>" class="dropdown-item">Renforcements</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_dictinctions_honorifiques'?>" class="dropdown-item">Dinstinction Hon.</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_accidents_roulage'?>" class="dropdown-item">Accident roulage</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_accidents_travail'?>" class="dropdown-item">Accident travail</a></li>
+                    <li><a href="<?=base_url().'modifications/Modifications/index/mv_exemptions_service'?>" class="dropdown-item">Exemptions de service</a></li>
                     
                 </ul>
             </li>
@@ -48,7 +48,56 @@
                 <a href="<?=base_url().'search/Search'?>" class="nav-link"><i class="fas fa-search"></i>Chercher</a>
             </li>
 
+            <li class="nav-item dropdown <?php if($this->router->class =='Impression') echo "active";?>">
+                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+                <i class="fas fa-print"></i>Impression</a>
+                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    <li><a href="<?=base_url().'archives/Impression/index/gr_fiche_identification'?>" class="dropdown-item">Identification</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/gr_fiche_carriere'?>" class="dropdown-item">Carriere</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/gr_ayants_droit'?>" class="dropdown-item">Ayants droits</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/gr_historique_situations'?>" class="dropdown-item">Situations</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_cotations'?>" class="dropdown-item">Cotations</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_etudes_faites'?>" class="dropdown-item">Etudes faits</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_formations_stages'?>" class="dropdown-item">Formations stages</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_avancement_grades'?>" class="dropdown-item">Grades</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_fiche_mutations'?>" class="dropdown-item">Mutations</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_actions_disciplinaires'?>" class="dropdown-item">Actions displ.</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_dossiers_penals'?>" class="dropdown-item">Dossiers penals</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_absences'?>" class="dropdown-item">Absences</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_renforcements'?>" class="dropdown-item">Renforcements</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_dictinctions_honorifiques'?>" class="dropdown-item">Dinstinction Hon.</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_accidents_roulage'?>" class="dropdown-item">Accident roulage</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_accidents_travail'?>" class="dropdown-item">Accident travail</a></li>
+                    <li><a href="<?=base_url().'archives/Impression/index/mv_exemptions_service'?>" class="dropdown-item">Exemptions de service</a></li>
+                    
+                </ul>
+            </li>
 
+            <li class="nav-item dropdown <?php if($this->router->class =='Archives') echo "active";?>">
+                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+                <i class="fas fa-folder"></i>Archivages</a>
+                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+                    <li><a href="<?=base_url().'archives/Archives/index/gr_fiche_identification'?>" class="dropdown-item">Identification</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/gr_fiche_carriere'?>" class="dropdown-item">Carriere</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/gr_ayants_droit'?>" class="dropdown-item">Ayants droits</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/gr_historique_situations'?>" class="dropdown-item">Situations</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_cotations'?>" class="dropdown-item">Cotations</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_etudes_faites'?>" class="dropdown-item">Etudes faits</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_formations_stages'?>" class="dropdown-item">Formations stages</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_avancement_grades'?>" class="dropdown-item">Grades</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_fiche_mutations'?>" class="dropdown-item">Mutations</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_actions_disciplinaires'?>" class="dropdown-item">Actions displ.</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_dossiers_penals'?>" class="dropdown-item">Dossiers penals</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_absences'?>" class="dropdown-item">Absences</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_renforcements'?>" class="dropdown-item">Renforcements</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_dictinctions_honorifiques'?>" class="dropdown-item">Dinstinction Hon.</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_accidents_roulage'?>" class="dropdown-item">Accident roulage</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_accidents_travail'?>" class="dropdown-item">Accident travail</a></li>
+                    <li><a href="<?=base_url().'archives/Archives/index/mv_exemptions_service'?>" class="dropdown-item">Exemptions de service</a></li>
+                    
+                </ul>
+            </li>
+            
             <li class="nav-item dropdown">
                 <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
                 <i class="fas fa-cog"></i>Parmetrages</a>
@@ -96,7 +145,7 @@
                       </ul>
                     </li>
                   </ul>
-            </li>
+            </li>            
 
             <li class="nav-item dropdown">
                 <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">

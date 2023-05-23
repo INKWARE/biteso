@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
 
-                <div class="table-responsive p-0">
+                <!-- <div class="table-responsive p-0"> -->
 
                     <?php echo $this->session->flashdata('msg');?>
 
@@ -28,6 +28,8 @@
                             <?php foreach ( $datas as $data ): ?>
                                 <?php 
                                     $user = get_db_occurency("admin_users", array('usr_id',$data->user_id)); 
+
+                                    $status = [0=>'Non valide',1=>'Valide',3=>'Rejeter'];
                                 ?>
                             <tr>
                                 <td><?=$data->id?></td>
@@ -35,9 +37,7 @@
                                 <td><?=$data->old_values?></td>
                                 <td><?=$data->new_values?></td>
                                 <td><?=$data->ip_address?></td>
-                                <td>
-                                    <a href='<?=base_url('gr/Modifications/traite/'.$data->id);?>'><span class="fa fa-edit"></span></a>
-                                </td>
+                                <td><?=$status[$data->statut]?></td>
                             </tr>
                             <?php endforeach;?>
                         </tbody>
@@ -49,7 +49,7 @@
 
                   
 
-                </div>
+                <!-- </div> -->
 
             </div>
         </div>

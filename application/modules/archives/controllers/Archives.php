@@ -1,16 +1,15 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Modifications extends Admin_Controller{
+class Archives extends Admin_Controller{
 
 	public function __construct(){
         parent::__construct();
-        $this->data['page_title'] = 'Modifications';
-        $this->data['js'] = base_url()."assets/js/pages/Modifications.js";
+        $this->data['page_title'] = 'Les archives';
+        $this->data['js'] = base_url()."assets/js/pages/Archives.js";
 	}
 
 	public function index(){
 
         $table = $this->uri->segment(4);
-
         $titles = [];
         $titles['gr_fiche_identification'] = "Indentification";
         $titles['gr_fiche_carriere'] = "carriere";
@@ -31,7 +30,7 @@ class Modifications extends Admin_Controller{
         $titles['mv_exemptions_service'] = "Exemption de service";
 
         $this->load->library( 'pagination' );
-        $config[ 'base_url' ]      = base_url( 'modifications/Modifications/index/'.$table );
+        $config[ 'base_url' ]      = base_url( 'archives/Archives/index/'.$table );
         $config[ 'per_page' ]      = 10;
         $config[ 'num_links' ]     = 2;
         $config[ 'total_rows' ] = $this->db->where(['table_name'=>$table, 'event'=>'update','statut !='=>1])->get('user_audit_trails')->num_rows();
@@ -39,37 +38,13 @@ class Modifications extends Admin_Controller{
         $this->data[ 'listing' ] = true;
         $this->data[ 'datas' ]   = $this->db->where(['table_name'=>$table, 'event'=>'update','statut !='=>1])->order_by( 'id', 'ASC' )->get( 'user_audit_trails',$this->uri->segment( 5 ), $config[ 'per_page' ] )->result();
        
-        $this->data[ 'title' ] = 'Les modifications: '.$titles[$table];
+        $names = explode("_",$table);
+
+        $this->data[ 'title' ] = 'Les archives : '.$titles[$table] ;
         $this->data['table'] = $table;
-        $this->render_template('modifications/index', $this->data);
+        $this->render_template('index', $this->data);
 	}
 
-    public function traite()
-    {
-        $id = $this->uri->segment(4);
-        $data = $this->db->where(['id'=>$id])->get('user_audit_trails')->row();
-        $table = $data->table_name;
-
-        $this->form_validation->set_rules('statut', 'Statut', 'required');
-
-            if($this->form_validation->run()){
-                $this->db->set('statut', $this->input->post('statut'))->where(['id'=>$this->input->post('id_trial')])->update('user_audit_trails');
-                
-                $insert = $this->db->insert('user_audit_trails_validate',$this->input->post());
-                
-                if(!empty($insert)){
-                    $this->session->set_flashdata('msg','<div class="alert alert-success">Cette modification a été sauvegardé avec succès.</div>');
-                }else{
-                    $this->session->set_flashdata('msg','<div class="alert alert-danger">Cette modification a échoué </div');
-                }
-                
-               redirect(base_url('modifications/Modifications/index/'.$table));
-            }
-
-        $this->data[ 'title' ] = "Validation d'une modification";
-        $this->data['table'] = $table;
-        $this->data['data'] = $data;
-        $this->render_template('modifications/traite', $this->data);
-    }
+    
 }
         
