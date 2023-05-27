@@ -5,20 +5,65 @@ class Fiche_identification extends Admin_Controller{
 			parent::__construct();
 			$this->data['page_title'] = $this->lang->line('identity_title');
 			$this->data['js'] = base_url()."assets/js/pages/Fiche_identification.js";
+			$this->data['url_list'] = "";
 		}
 
 		public function index(){
 			$this->load->library( 'pagination' );
-			$config[ 'base_url' ]      = base_url( 'carriere/Fiche_identification/index' );
-			$config[ 'per_page' ]      = 10;
-			$config[ 'num_links' ]     = 2;
-			$config[ 'total_rows' ] = $this->db->get( 'gr_fiche_identification' )->num_rows();
-			$this->pagination->initialize( $config );
-			$this->data[ 'listing' ] = true;
-			$this->data[ 'datas' ]   = $this->db->order_by( 'id_identification', 'DESC' )->get( 'gr_fiche_identification', $config[ 'per_page' ],$this->uri->segment( 4 ));
 			$this->data[ 'title' ] = $this->lang->line('identity_title');
-			// $this->data[ 'title_top_bar' ] = 'Liste des fiches';
+			$this->data[ 'url_list' ] = "gr/Fiche_identification/fetch_data";
 			$this->render_template('fiche_identification/index', $this->data);
+		}
+
+		public function fetch_data(){
+			$table = "gr_fiche_identification";
+			$primary = $this->config->item($table)['primary'];
+			$select_column = $this->config->item($table)['fields'];
+			$order_column = $this->config->item($table)['order'];
+			$search_column = $this->config->item($table)['search'];
+
+			$fetch_data = $this->My_model->make_datatables($table, $primary, $order_column, $search_column, $select_column,[]);
+
+			$array_data = array();
+			foreach ($fetch_data as $data) {				
+					$colline = get_db_occurency("gr_collines", array('id_colline',$data->id_colline)); 
+					$commune = get_db_occurency("gr_communes", array('id_commune ',$colline->id_commune)); 
+					$province = get_db_occurency("gr_provinces", array('id_province',$commune->id_province)); 
+
+					$sub_array = array();
+				
+					$sub_array[] =$data->id_identification;
+					$sub_array[] =$data->matricule;
+					$sub_array[] =get_db_value("gr_categories","nom_categorie",array("id_categorie",$data->id_categorie));
+					$sub_array[] =$data->nom;
+					$sub_array[] =$data->prenom;
+					$sub_array[] =get_db_value("gr_sexes","nom_sexe",array("id_sexe",$data->id_sexe));
+					$sub_array[] =get_db_value("gr_ethnies","nom_ethnie",array("id_ethnie",$data->id_ethnie));
+					$sub_array[] =get_db_value("gr_corps_origine","nom_corps_origine",array("id_corps_origine",$data->id_corps_origine));
+					$sub_array[] =get_db_value("gr_etat_civil","nom_etat_civil",array("id_etat_civil",$data->id_etat_civil));
+					$sub_array[] =$data->date_naissance;
+					$sub_array[] =$data->ville_naissance;
+					$sub_array[] =$province->nom_province."/".$commune->nom_commune."/".$colline->nom_colline;
+					$sub_array[] =get_db_value("gr_promotions","nom_promotion",array("id_promotion",$data->id_promotion));
+					$sub_array[] ="
+						<a href='".base_url('gr/Fiche_identification/view/'.$data->id_identification)."'><span class='fa fa-eye'></span></a>
+						&nbsp; 
+						<a href='".base_url('gr/Fiche_identification/edit/'.$data->id_identification)."'><span class='fa fa-edit'></span></a>
+						&nbsp;
+						<a href='".base_url('gr/Fiche_identification/delete/'.$data->id_identification)."' class='delete'><span class='fa fa-trash text-danger'></span></a></td>";
+					
+					$array_data[] = $sub_array;
+			}
+
+			$output = array(
+				"draw" => intval($_POST["draw"]),
+				"recordsTotal" =>$this->My_model->get_all_data($table),
+				"recordsFiltered" => $this->My_model->get_filtered_data($table, $primary, $order_column, $search_column, $select_column, []),
+				"data" =>$array_data
+			);
+
+			echo json_encode($output);
+
 		}
 
 		public function add(){

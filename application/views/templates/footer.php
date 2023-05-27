@@ -100,17 +100,32 @@
 $(document).ready(function () {
   bsCustomFileInput.init();
 
-  $('#dtable').DataTable({
-				/*'buttons': ["copy", "csv", "excel", "pdf", "print", "colvis"],*/
-				'responsive':true,
-				'paging' : true,
-				'lengthChange' : true,
-				'searching' : true,
-				'ordering' : true,
-				'info' : true,
-				'autoWidth' : false,
-				'deferRender' : true
-	});
+      $('#dtable').DataTable({
+            /*'buttons': ["copy", "csv", "excel", "pdf", "print", "colvis"],*/
+            'responsive':true,
+            'paging' : true,
+            'lengthChange' : true,
+            'searching' : true,
+            'ordering' : true,
+            'info' : true,
+            'autoWidth' : false,
+            'deferRender' : true
+      });
+
+      $('#tables').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "order":[],
+            "ajax":{
+                  url: url + '<?php echo $url_list;?>',
+                  type:"POST"
+            },
+            "columnDefs":[
+                  {
+                        "orderable":false
+                  }
+            ]
+      });
 	
   $('.select2').select2({
     tags : false

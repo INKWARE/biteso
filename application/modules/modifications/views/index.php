@@ -11,11 +11,11 @@
             </div>
             <div class="card-body">
 
-                <!-- <div class="table-responsive p-0"> -->
+                <div class="table-responsive p-0">
 
                     <?php echo $this->session->flashdata('msg');?>
 
-                    <table class='table table-striped' id="dtable">
+                    <table class='table table-striped' id="tables">
                         <thead>
                             <th>#</th>
                             <th>UTILISATEUR</th>
@@ -26,34 +26,15 @@
                             <th>OPTIONS</th>
                          </thead>
                         <tbody>
-                            <?php foreach ( $datas as $data ): ?>
-                                <?php 
-                                    $user = get_db_occurency("admin_users", array('usr_id',$data->user_id)); 
-
-                                    $status = [0=>'Non valide',1=>'Valide',3=>'Rejeter'];
-                                ?>
-                            <tr>
-                                <td><?=$data->id?></td>
-                                <td><?=$user->usr_fname.' '.$user->usr_lname?></td>
-                                <td><?=$data->old_values?></td>
-                                <td><?=$data->new_values?></td>
-                                <td><?=$data->ip_address?></td>
-                                <td><?=$status[$data->statut]?></td>
-                                <td>
-                                    <a href='<?=base_url('modifications/Modifications/traite/'.$data->id);?>'><span class="fa fa-edit"></span></a>
-                                </td>
-                            </tr>
-                            <?php endforeach;?>
+                           
                         </tbody>
                     </table>
-
-                    <?php echo $this->pagination->create_links(); ?>
 
                     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
                   
 
-                <!-- </div> -->
+                </div>
 
             </div>
         </div>

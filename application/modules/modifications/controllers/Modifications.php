@@ -5,6 +5,7 @@ class Modifications extends Admin_Controller{
         parent::__construct();
         $this->data['page_title'] = 'Modifications';
         $this->data['js'] = base_url()."assets/js/pages/Modifications.js";
+        $this->data['url_list'] = "";
 	}
 
 	public function index(){
@@ -30,19 +31,57 @@ class Modifications extends Admin_Controller{
         $titles['mv_accidents_travail'] = "Accidents de travail";
         $titles['mv_exemptions_service'] = "Exemption de service";
 
-        $this->load->library( 'pagination' );
-        $config[ 'base_url' ]      = base_url( 'modifications/Modifications/index/'.$table );
-        $config[ 'per_page' ]      = 10;
-        $config[ 'num_links' ]     = 2;
-        $config[ 'total_rows' ] = $this->db->where(['table_name'=>$table, 'event'=>'update','statut !='=>1])->get('user_audit_trails')->num_rows();
-        $this->pagination->initialize( $config );
-        $this->data[ 'listing' ] = true;
-        $this->data[ 'datas' ]   = $this->db->where(['table_name'=>$table, 'event'=>'update','statut !='=>1])->order_by( 'id', 'ASC' )->get( 'user_audit_trails',$this->uri->segment( 5 ), $config[ 'per_page' ] )->result();
-       
+        
         $this->data[ 'title' ] = 'Les modifications: '.$titles[$table];
         $this->data['table'] = $table;
+        $this->data['url_list'] = "modifications/Modifications/fetch_data/".$table;
         $this->render_template('modifications/index', $this->data);
 	}
+
+    public function fetch_data(){
+        $table= 'user_audit_trails';
+        $primary = 'id';
+        $select_column = array('id', 'user_id', 'event', 'table_name', 'old_values', 'new_values', 'url', 'ip_address', 'user_agent', 'statut', 'created_at');
+        $order_column = array('id', 'url', 'ip_address', 'user_agent', 'statut', 'created_at');
+        $search_column = array('id', 'statut', 'created_at');
+
+        $criteres = array(
+            'table_name'=>$this->uri->segment(4),
+            'event'=>'update',
+            'statut !='=>1
+        );
+
+        $fetch_data = $this->My_model->make_datatables($table, $primary, $order_column, $search_column, $select_column, $criteres);
+        $status =  array('0'=>'-','1'=>'Valider','2'=>'Refuser');
+
+        $array_data = array();
+        foreach ($fetch_data as $data) {				
+                
+                $sub_array = array();
+                $user = $this->db->where(['usr_id'=>$data->user_id])->get('admin_collaborateurs')->row();
+            
+                $sub_array[] =$data->id;
+                $sub_array[] = $user->usr_fname." ".$user->usr_lname;
+                $sub_array[] =$data->old_values;
+                $sub_array[] =$data->new_values;
+                $sub_array[] =$data->ip_address;
+                $sub_array[] =$status[$data->statut];
+                $sub_array[] ="<a href='".base_url('modifications/Modifications/traite/'.$data->id)."'><span class='fa fa-edit'></span></a>";
+                
+                $array_data[] = $sub_array;
+        }
+
+        $output = array(
+            "draw" => intval($_POST["draw"]),
+            "recordsTotal" =>$this->My_model->get_all_data($table),
+            "recordsFiltered" => $this->My_model->get_filtered_data($table, $primary, $order_column, $search_column, $select_column, $criteres),
+            "data" =>$array_data,
+            "table"=>$this->uri->segment(4)
+        );
+
+        echo json_encode($output);
+
+    }
 
     public function traite()
     {

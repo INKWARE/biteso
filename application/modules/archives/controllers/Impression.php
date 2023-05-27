@@ -80,7 +80,7 @@ class Impression extends Admin_Controller{
             $indice ++;
         }
 
-        $pdf->Output('D');
+        $pdf->Output('I', $title.'_'.date('YmdHi').'.pdf');
     }
 
     public function data_gr_fiche_identification($criteres=[])

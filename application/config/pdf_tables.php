@@ -16,10 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     Table: gr_fiche_identification
 */
 $config['gr_fiche_identification'] = array(
-    'fields'=>array('nouveau_matricule','nom','prenom','id_categorie','id_sexe','id_ethnie','id_corps_origine','date_naissance','id_etat_civil'),
+    'fields'=>array('id_identification','matricule','nouveau_matricule','ancien_matricule','nom','prenom','id_categorie','id_promotion','id_sexe','id_ethnie','id_corps_origine','date_naissance','id_etat_civil','id_colline','id_commune','id_province','ville_naissance'),
+    'order'=>array('id_identification','matricule','id_categorie','nom','prenom','id_sexe','id_ethnie','id_corps_origine','id_etat_civil','date_naissance','ville_naissance','id_province','id_promotion'),
+    'search'=>array('id_identification','matricule','nom','prenom','date_naissance','ville_naissance'),
     'columns'=>array("#",'Matricule','Nom','Prenom','Categorie','Sexe','Ethnie','Corps d\'origine','Nee','Etat civil'),
     'sizes'=>array('5','18','25','25','21','13','20','30','20','18'),
-    'orientation' => "P"
+    'orientation' => "P",
+    'primary'=>"id_identification"
 );
 
 /*
