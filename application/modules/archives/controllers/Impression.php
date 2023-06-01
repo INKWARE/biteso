@@ -42,7 +42,7 @@ class Impression extends Admin_Controller{
         );
 	}
 
-    public function imprimer($title, $tsize = [], $thead = [],$tbody = [], $orientation)
+    public function imprimer($title = "", $tsize = array(), $thead = array(),$tbody = array(), $orientation = "P")
     {
         $pdf = new PDF($orientation);
         $pdf->AddPage();
