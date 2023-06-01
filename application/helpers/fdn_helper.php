@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 if ( ! function_exists('render_fragment'))
 {
-    function render_fragment($viewFragment,$data,$id_identification = 0, $title){
+    function render_fragment($viewFragment,$data,$id_identification = 0, $title=""){
         $ci = & get_instance();        
         $datas["fragmentTitle"]= $title;
         $datas["datas"]= $data;
