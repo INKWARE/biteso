@@ -248,9 +248,12 @@ class My_model extends CI_Model {
 		return $query->num_rows();
 	} 
 
-	public function get_all_data($table)
+	public function get_all_data($table, $criteres = [])
 	{
 		$this->db->select("*");
+		if(!empty($criteres)){
+			$this->db->where($criteres);
+		}
 		$this->db->from($table);
 		return $this->db->count_all_results();
 	}

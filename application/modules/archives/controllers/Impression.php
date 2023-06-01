@@ -228,6 +228,263 @@ class Impression extends Admin_Controller{
         return $retours;
     }
 
+    public function data_mv_formations_stages($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_formations_stages')['fields'])->where($criteres)->get('mv_formations_stages')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->id_stage  > 0?get_db_value("mv_stages","titre_stage",array("id_stage",$data->id_stage)):"";
+                $sub_array[] = $data->id_specialite  > 0?get_db_value("gr_specialites","nom_specialite",array("id_specialite",$data->id_specialite)):"";
+                $sub_array[] = $data->titre_obtenu;
+                $sub_array[] = $data->note_obtenue;
+                $sub_array[] = $data->date_debut;
+                $sub_array[] = $data->date_fin;
+                $sub_array[] = $data->montant_prime;
+                
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+    public function data_mv_avancement_grades($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_avancement_grades')['fields'])->where($criteres)->get('mv_avancement_grades')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->id_categorie  > 0?get_db_value("gr_categories","nom_categorie",array("id_categorie",$data->id_categorie)):"";
+                $sub_array[] = $data->id_ancien_grade  > 0?get_db_value("gr_grades","code_grade",array("id_grade",$data->id_ancien_grade)):"";
+                $sub_array[] = $data->id_nouveau_grade  > 0?get_db_value("gr_grades","code_grade",array("id_grade",$data->id_nouveau_grade)):"";
+                $sub_array[] = $data->date_avancement;
+                $sub_array[] = $data->ancien_salaire_base;
+                $sub_array[] = $data->nouveau_salaire_base;                
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
     
+
+    public function data_mv_fiche_mutations($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_fiche_mutations')['fields'])->where($criteres)->get('mv_fiche_mutations')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->date_mutation;
+                $sub_array[] = $data->id_ancien_service  > 0?get_db_value("gr_services","nom_service",array("id_service",$data->id_ancien_service)):"";
+                $sub_array[] = $data->id_nouveau_service  > 0?get_db_value("gr_services","nom_service",array("id_service",$data->id_nouveau_service)):"";
+                $sub_array[] = $data->id_ancienne_fonction  > 0?get_db_value("gr_fonctions","nom_fonction",array("id_fonction",$data->id_ancienne_fonction)):"";
+                $sub_array[] = $data->id_nouvelle_fonction  > 0?get_db_value("gr_fonctions","nom_fonction",array("id_fonction",$data->id_nouvelle_fonction)):"";
+            
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+
+    public function data_mv_actions_disciplinaires($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_actions_disciplinaires')['fields'])->where($criteres)->get('mv_actions_disciplinaires')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->date_ouverture;
+                $sub_array[] = $data->date_cloture;
+                $sub_array[] = $data->date_levee;
+                $sub_array[] = $data->nb_jours_punition;
+                $sub_array[] = $data->id_type_punition  > 0?get_db_value("mv_types_punitions","nom_type_punition",array("id_type_punition",$data->id_type_punition)):"";
+                $sub_array[] = $data->autorite_decision;               
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+    public function data_mv_dossiers_penals($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_dossiers_penals')['fields'])->where($criteres)->get('mv_dossiers_penals')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->date_debut;
+                $sub_array[] = $data->date_fin;
+                $sub_array[] = $data->id_type_infraction > 0?get_db_value("mv_types_infraction","nom_infraction",array("id_type_infraction",$data->id_type_infraction)):"";
+                $sub_array[] = $data->id_type_peine > 0?get_db_value("mv_types_peine","nom_type_peine",array("id_type_peine",$data->id_type_peine)):"";
+                $sub_array[] = $data->juridiction;
+                $sub_array[] = $data->nbre;             
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+   
+    public function data_mv_absences($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_absences')['fields'])->where($criteres)->get('mv_absences')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->date_debut;
+                $sub_array[] = $data->date_fin;
+                $sub_array[] = $data->nb_jours;
+                $sub_array[] = $data->nb_heures;             
+                $sub_array[] = $data->est_justifie;             
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+    public function data_mv_renforcements($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_renforcements')['fields'])->where($criteres)->get('mv_renforcements')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->id_type_renforcement > 0?get_db_value("mv_types_renforcement","type_renforcement",array("id_type_renforcement",$data->id_type_renforcement)):"";
+                $sub_array[] = $data->titre_obtenu;                
+                $sub_array[] = $data->id_pays > 0?get_db_value("gr_pays","nom_pays",array("id_pays",$data->id_pays)):"";
+                $sub_array[] = $data->date_depart;
+                $sub_array[] = $data->date_retour;
+                $sub_array[] = $data->nb_jours;          
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+    public function data_mv_dictinctions_honorifiques($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_dictinctions_honorifiques')['fields'])->where($criteres)->get('mv_dictinctions_honorifiques')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->id_type_distiction > 0?get_db_value("mv_type_distiction_honorifiques","type_distiction",array("id_type_distiction",$data->id_type_distiction)):"";
+                $sub_array[] = $data->date_distiction;                
+                 $sub_array[] = $data->ref_distiction;         
+                 $sub_array[] = $data->observations;         
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+    public function data_mv_accidents_roulage($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_accidents_roulage')['fields'])->where($criteres)->get('mv_accidents_roulage')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->date_accident;
+                $sub_array[] = $data->degat_charge;                
+                 $sub_array[] = $data->degat_cause;         
+                 $sub_array[] = $data->responsable;         
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+    public function data_mv_accidents_travail($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_accidents_travail')['fields'])->where($criteres)->get('mv_accidents_travail')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->date_accident;
+                $sub_array[] = $data->nature;                
+                 $sub_array[] = $data->decision;          
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
+
+    public function data_mv_exemptions_service($criteres = [])
+    {
+        $datas = $this->db->select($this->config->item('mv_exemptions_service')['fields'])->where($criteres)->get('mv_exemptions_service')->result();
+
+        $retours = [];
+        if(!empty($datas)){
+            foreach($datas as $data){
+                
+                $sub_array = array();
+                $sub_array[] = get_db_value("gr_fiche_identification","nom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","prenom",array("id_identification",$data->id_identification))." ".get_db_value("gr_fiche_identification","matricule",array("id_identification",$data->id_identification));
+                $sub_array[] = $data->annee;
+                $sub_array[] = $data->date_debut;                
+                 $sub_array[] = $data->date_fin;          
+                 $sub_array[] = $data->nb_jours;          
+
+                $retours[] = $sub_array;
+            }
+        }
+
+        return $retours;
+    }
 }
         
