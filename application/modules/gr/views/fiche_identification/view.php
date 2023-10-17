@@ -5,81 +5,83 @@
     <section class="content">
 
         <div class="card card-info card-outline card-tabs">
-            <div class="card-header p-0 pt-1">
+            <div class="card-header">
+                <div class="card-header p-0 pt-1">
 
-                <span class="float-right">
-                    <?php if($this->router->method !== 'view'){ ?>
-                        <a href='<?=base_url('gr/Fiche_identification/add')?>' class="btn btn-info btn-sm"><i
-                                class="fa fa-plus"></i> <span class="d-none d-sm-inline">&nbsp;Nouvelle Fiche</span>
-                        </a>
-                    <?php } ?>
+                    <span class="float-right">
+                        <?php if($this->router->method !== 'view'){ ?>
+                            <a href='<?=base_url('gr/Fiche_identification/add')?>' class="btn btn-info btn-sm"><i
+                                    class="fa fa-plus"></i> <span class="d-none d-sm-inline">&nbsp;Nouvelle Fiche</span>
+                            </a>
+                        <?php } ?>
 
-                    <a class="btn btn-primary btn-sm" href="<?=base_url('gr/Fiche_identification')?>"><i
-                            class="fa fa-list"></i>
-                        <span class="d-none d-sm-inline">&nbsp;Liste des Fiches</span>
-                    </a>
-                </span>
-                <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="tab_identinfication-tab" data-toggle="pill"
-                            href="#tab_identinfication" role="tab" aria-controls="tab_identinfication"
-                            aria-selected="false">
-                            <i class="fa fa-file"></i>Identification
+                        <a class="btn btn-primary btn-sm" href="<?=base_url('gr/Fiche_identification')?>"><i
+                                class="fa fa-list"></i>
+                            <span class="d-none d-sm-inline">&nbsp;Liste des Fiches</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_ayant_droits-tab" data-toggle="pill" href="#tab_ayant_droits"
-                            role="tab" aria-controls="tab_ayant_droits" aria-selected="false">
-                            <i class="fa fa-users"></i>Ayants droits
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_carriere-tab" data-toggle="pill" href="#tab_carriere" role="tab"
-                            aria-controls="tab_carriere" aria-selected="true">
-                            <i class="fa fa-list"></i>Carriere
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_situations-tab" data-toggle="pill" href="#tab_situations" role="tab"
-                            aria-controls="tab_situations" aria-selected="false">
-                            <i class="fa fa-file"></i>Situations
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_cotations-tab" data-toggle="pill" href="#tab_cotations" role="tab"
-                            aria-controls="tab_cotations" aria-selected="true">
-                            <i class="fa fa-check"></i>Cotations
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_etudes_faites-tab" data-toggle="pill" href="#tab_etudes_faites"
-                            role="tab" aria-controls="tab_etudes_faites" aria-selected="false">
-                            <i class="fa fa-school"></i>
-                            Etudes faites
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_formations-tab" data-toggle="pill" href="#tab_formations" role="tab"
-                            aria-controls="tab_formations" aria-selected="false">
-                            <i class="fa fa-graduation-cap"></i>
-                            Formations & Stages
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_hist_grades-tab" data-toggle="pill" href="#tab_hist_grades"
-                            role="tab" aria-controls="tab_hist_grades" aria-selected="false">
-                            <i class="fa fa-shield-alt"></i>
-                            Historique des grades
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tab_mvts-tab" data-toggle="pill" href="#tab_mvts" role="tab"
-                            aria-controls="tab_mvts" aria-selected="false">
-                            <i class="fa fa-street-view"></i>
-                            Mouvements
-                        </a>
-                    </li>
-                </ul>
+                    </span>
+                    <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="tab_identinfication-tab" data-toggle="pill"
+                                href="#tab_identinfication" role="tab" aria-controls="tab_identinfication"
+                                aria-selected="false">
+                                <i class="fa fa-file"></i>Identification
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_ayant_droits-tab" data-toggle="pill" href="#tab_ayant_droits"
+                                role="tab" aria-controls="tab_ayant_droits" aria-selected="false">
+                                <i class="fa fa-users"></i>Ayants droits
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_carriere-tab" data-toggle="pill" href="#tab_carriere" role="tab"
+                                aria-controls="tab_carriere" aria-selected="true">
+                                <i class="fa fa-list"></i>Carriere
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_situations-tab" data-toggle="pill" href="#tab_situations" role="tab"
+                                aria-controls="tab_situations" aria-selected="false">
+                                <i class="fa fa-file"></i>Situations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_cotations-tab" data-toggle="pill" href="#tab_cotations" role="tab"
+                                aria-controls="tab_cotations" aria-selected="true">
+                                <i class="fa fa-check"></i>Cotations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_etudes_faites-tab" data-toggle="pill" href="#tab_etudes_faites"
+                                role="tab" aria-controls="tab_etudes_faites" aria-selected="false">
+                                <i class="fa fa-school"></i>
+                                Etudes faites
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_formations-tab" data-toggle="pill" href="#tab_formations" role="tab"
+                                aria-controls="tab_formations" aria-selected="false">
+                                <i class="fa fa-graduation-cap"></i>
+                                Formations & Stages
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_hist_grades-tab" data-toggle="pill" href="#tab_hist_grades"
+                                role="tab" aria-controls="tab_hist_grades" aria-selected="false">
+                                <i class="fa fa-shield-alt"></i>
+                                Historique des grades
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tab_mvts-tab" data-toggle="pill" href="#tab_mvts" role="tab"
+                                aria-controls="tab_mvts" aria-selected="false">
+                                <i class="fa fa-street-view"></i>
+                                Mouvements
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="card-body">
                 <div class="tab-content" id="custom-tabs-one-tabContent">
